@@ -1,0 +1,12 @@
+<h1>la liste des livres publiés entre deux dates « 2014-01-01» et « 2018- 12-31»</h1>
+{%for i in book%}
+<table>
+<td>
+<tr>{{i.title}}</tr><br>
+  <tr>{{i.date |date('Y-m-d') }}</tr><br>
+
+  <tr>{{authorname[loop.index0]}}</tr><br>
+  <tr>{{i.category}}</tr><br>
+</td>
+{%endfor%}
+</table>

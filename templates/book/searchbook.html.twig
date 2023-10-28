@@ -1,0 +1,34 @@
+<h1>Search Book By ID</h1>
+{{ form_start(f) }}
+
+{# Render each form field individually #}
+{{ form_row(f.id) }}
+
+{{ form_end(f) }}
+<table border="1">
+    <tr>
+       <td>title</td>
+       <td>publicationDate</td> 
+       <td>Published</td>
+       <td>name author</td>
+       <td>category</td>
+       <td>delete</td>
+       <td>edit</td>
+       <td>show</td>
+    </tr>
+   
+    {% for i in book %}
+    <tr>
+     
+        <td>{{i.title}}</td>
+       <td>{{i.date |date('Y-m-d') }}</td> 
+       <td>{{i.enabled}}</td>
+      <td>{{authorname[loop.index0]}}</td>
+      <td>{{i.category}}</td>
+      <td><a href="{{ path('deletebook',{'id':i.id} )}}">delete</a></td>
+       
+      <td><a href="{{path('editbook',{'id':i.id} )}}">edit</a></td>
+      <td><a href="{{path('show',{'id':i.id} )}}">show</a></td>
+    </tr>
+    {%endfor%}
+</table>
